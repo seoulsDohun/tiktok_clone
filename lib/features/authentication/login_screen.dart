@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    /* 로그인 버튼 클릭 이벤트 */
+    void onTapLogin(BuildContext context) {
+      Navigator.of(context).pop();
+    }
+
     return Scaffold(
       body: const SafeArea(
         child: Padding(
@@ -16,7 +21,7 @@ class SignUpScreen extends StatelessWidget {
           child: Column(children: [
             Gaps.v80,
             Text(
-              'Sign Up for TikTok',
+              'Log in to TikTok',
               style: TextStyle(
                 fontSize: Sizes.size24,
                 fontWeight: FontWeight.w700,
@@ -24,7 +29,7 @@ class SignUpScreen extends StatelessWidget {
             ),
             Gaps.v16,
             Text(
-              'Create a profile, follow other accounts, make your own videos, and more.',
+              'Manage your account, check notifications, comment on videos, and more.',
               style: TextStyle(
                 fontSize: Sizes.size16,
                 color: Colors.black45,
@@ -46,18 +51,21 @@ class SignUpScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Already have an account?',
+                "Don't have an account?",
                 style: TextStyle(
                   fontSize: Sizes.size16,
                 ),
               ),
               Gaps.h5,
-              Text(
-                'Log in',
-                style: TextStyle(
-                  fontSize: Sizes.size16,
-                  fontWeight: FontWeight.w600,
-                  color: Theme.of(context).primaryColor,
+              GestureDetector(
+                onTap: () => onTapLogin(context),
+                child: Text(
+                  'Sing up',
+                  style: TextStyle(
+                    fontSize: Sizes.size16,
+                    fontWeight: FontWeight.w600,
+                    color: Theme.of(context).primaryColor,
+                  ),
                 ),
               )
             ],
