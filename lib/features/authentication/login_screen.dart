@@ -7,13 +7,13 @@ import 'package:tiktok_clone/features/authentication/widgets/auth_button.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
+  /* Sign Up 버튼 클릭 이벤트 */
+  void onTapSignUp(BuildContext context) {
+    Navigator.of(context).pop();
+  }
+
   @override
   Widget build(BuildContext context) {
-    /* 로그인 버튼 클릭 이벤트 */
-    void onTapLogin(BuildContext context) {
-      Navigator.of(context).pop();
-    }
-
     return Scaffold(
       body: const SafeArea(
         child: Padding(
@@ -70,7 +70,7 @@ class LoginScreen extends StatelessWidget {
               ),
               Gaps.h5,
               GestureDetector(
-                onTap: () => onTapLogin(context),
+                onTap: () => onTapSignUp(context),
                 child: Text(
                   'Sing up',
                   style: TextStyle(

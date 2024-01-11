@@ -2,32 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/authentication/email_screen.dart';
 import 'package:tiktok_clone/features/authentication/login_screen.dart';
 import 'package:tiktok_clone/features/authentication/widgets/auth_button.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
+  /* 로그인 버튼 클릭 이벤트 */
+  void onTapLogin(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const LoginScreen(),
+      ),
+    );
+  }
+
+  /* 회원가입 버튼 클릭 이벤트 */
+  void onSignUp(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const EmailScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    /* 로그인 버튼 클릭 이벤트 */
-    void onTapLogin(BuildContext context) {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => const LoginScreen(),
-        ),
-      );
-    }
-
     return Scaffold(
-      body: const SafeArea(
+      body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: Sizes.size40,
           ),
           child: Column(children: [
             Gaps.v80,
-            Text(
+            const Text(
               'Sign Up for TikTok',
               style: TextStyle(
                 fontSize: Sizes.size24,
@@ -35,7 +45,7 @@ class SignUpScreen extends StatelessWidget {
               ),
             ),
             Gaps.v16,
-            Text(
+            const Text(
               'Create a profile, follow other accounts, make your own videos, and more.',
               style: TextStyle(
                 fontSize: Sizes.size16,
@@ -46,10 +56,11 @@ class SignUpScreen extends StatelessWidget {
             Gaps.v32,
             AuthButton(
               text: 'Use email & password',
-              icon: FaIcon(FontAwesomeIcons.user),
+              icon: const FaIcon(FontAwesomeIcons.user),
+              onTap: onSignUp,
             ),
             Gaps.v16,
-            AuthButton(
+            const AuthButton(
               text: 'Continue with Apple',
               icon: FaIcon(FontAwesomeIcons.apple),
             ),
